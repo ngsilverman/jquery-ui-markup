@@ -16,14 +16,22 @@ function callUI( element, ui, options ) {
 
 $( document ).ready(function() {
 	$( "["+namespace+"]" ).each(function() {
-		var attr, i, options = {},
+		var i, name, options = {}, value,
 			$this = $( this ),
 			ui = $this.data("ui");
 
 		for ( i = 0; i < this.attributes.length; i++ ) {
-			attr = this.attributes[i];
-			if ( attr.name.indexOf( optionsNamespace ) === 0 && attr.name.length > optionsNamespace.length ) {
-				options[ attrToOption( attr.name ) ] = attr.value;
+			name = this.attributes[i].name;
+			value = this.attributes[i].value;
+
+			if ( name.indexOf( optionsNamespace ) === 0 && name.length > optionsNamespace.length ) {
+				if ( /(true|false)/i.test( value ) ) {
+					value = value.toLowerCase() === "true";
+				} else if ( !isNaN( value ) ) {
+					value = +value;	
+				}
+
+				options[ attrToOption( name ) ] = value;
 			}
 		}
 
