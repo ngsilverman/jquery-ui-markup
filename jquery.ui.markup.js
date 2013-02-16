@@ -11,7 +11,6 @@ function attrToOption( attr ) {
 }
 
 function callUI( element, ui, options ) {
-	console.log(options);
 	element[ ui ]( options );
 }
 
