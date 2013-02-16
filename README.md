@@ -3,7 +3,7 @@ jQuery UI Markup
 
 Use jQuery UI purely through HTML markup (data attributes). No extra Javascript needed.
 
-Specify the interaction or the widget through the `data-ui` attribute and the options through `data-ui-<option>="value"` with option being a hyphenated option name (`data-ui-connect-with` instead of `connectWith`, for instance).
+Specify the interaction, widget or effect through the `data-ui` attribute and the options through `data-ui-<option>="value"` with option being a hyphenated option name (`data-ui-connect-with` instead of `connectWith`, for instance).
 
 ## Examples
 
@@ -18,6 +18,18 @@ Specify the interaction or the widget through the `data-ui` attribute and the op
 ```html
 <div data-ui="draggable" data-ui-cursor="move">
   <p>Drag me around</p>
+</div>
+```
+
+### Effect
+
+```html
+<div data-ui="effect" data-ui-effect="bounce" data-ui-duration="5000">
+  <h3>Effect</h3>
+  <p>
+    Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+    Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+  </p>
 </div>
 ```
 
