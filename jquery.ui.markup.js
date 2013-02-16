@@ -10,9 +10,16 @@ function attrToOption( attr ) {
 	});
 }
 
+function callUI( element, ui, options ) {
+	console.log(options);
+	element[ ui ]( options );
+}
+
 $( document ).ready(function() {
 	$( "["+namespace+"]" ).each(function() {
-		var attr, i, options = {}, $this = $( this );
+		var attr, i, options = {},
+			$this = $( this ),
+			ui = $this.data("ui");
 
 		for ( i = 0; i < this.attributes.length; i++ ) {
 			attr = this.attributes[i];
@@ -21,7 +28,11 @@ $( document ).ready(function() {
 			}
 		}
 
-		$this[ $this.data("ui") ]( options );
+		if ( /(addClass|effect|hide|show|toggle)/i.test( ui ) && options.delay ) {
+			window.setTimeout(function() { callUI( $this, ui, options ); }, options.delay );
+		} else {
+			callUI( $this, ui, options );
+		}
 	});
 });
 
