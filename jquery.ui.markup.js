@@ -12,7 +12,7 @@ function attrToOption( attr ) {
 
 $( document ).ready(function() {
 	$( "["+namespace+"]" ).each(function() {
-		var attr, i, options = {}, $this;
+		var attr, i, options = {}, $this = $( this );
 
 		for ( i = 0; i < this.attributes.length; i++ ) {
 			attr = this.attributes[i];
@@ -21,7 +21,6 @@ $( document ).ready(function() {
 			}
 		}
 
-		$this = $( this );
 		$this[ $this.data("ui") ]( options );
 	});
 });
