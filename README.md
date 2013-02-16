@@ -5,6 +5,8 @@ Use jQuery UI purely through HTML markup (data attributes). No extra Javascript 
 
 Specify the interaction, widget or effect through the `data-ui` attribute and the options through `data-ui-<option>="value"` with option being the hyphenated option name (`data-ui-connect-with` instead of `connectWith`, for instance).
 
+**All the jQuery UI options of Boolean, Integer, Number or String type are available.**
+
 ## Extra Options
 
 `data-ui-delay="<milliseconds>"` Adds a delay before the start of an effect (Add Class, Effect, Hide, Show or Toggle).
