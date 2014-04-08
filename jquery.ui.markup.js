@@ -29,6 +29,8 @@ $( document ).ready(function() {
 					value = value.toLowerCase() === "true";
 				} else if ( !isNaN( value ) ) {
 					value = +value;	
+				} else if ( value.charAt(0) === "{" ) {
+					value = eval("("+value+")");
 				}
 
 				options[ attrToOption( name ) ] = value;
